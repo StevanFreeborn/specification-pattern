@@ -7,14 +7,17 @@ public class Movie : Entity
   public virtual MpaaRating MpaaRating { get; }
   public virtual string Genre { get; } = string.Empty;
   public virtual double Rating { get; }
+  public virtual long DirectorId { get; set; }
+  public virtual Director Director { get; set; } = null!;
 
   protected Movie()
   {
   }
 
-  public Movie(long id, string name, DateTime releaseDate, MpaaRating mpaaRating, string genre, double rating)
+  public Movie(long id, long directorId, string name, DateTime releaseDate, MpaaRating mpaaRating, string genre, double rating)
   {
     Id = id;
+    DirectorId = directorId;
     Name = name;
     ReleaseDate = releaseDate;
     MpaaRating = mpaaRating;
